@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untappd Toolbar | The Ultimate Beer Ticker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icon.png">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="bounce-in">🍺 Untappd Toolbar</h1>
+                <p class="subtitle">Never miss a toast again.</p>
+                <p class="description">A live, scrolling ticker of your friends' Untappd activity, right in your browser.</p>
+                <a href="#install" class="btn btn-primary">Get the Extension</a>
+            </div>
+            <div class="hero-image">
+                <!-- CSS Only representation of the toolbar -->
+                <div class="mock-browser">
+                    <div class="mock-toolbar">
+                        <div class="mock-item">
+                            <div class="mock-avatar"></div>
+                            <div class="mock-text">
+                                <div class="line1">Chris checked-in <b>IPA</b> by <b>Brewery</b></div>
+                                <div class="line2">@ Pub, ⭐ 4.5, 2m ago</div>
+                            </div>
+                        </div>
+                        <div class="mock-item">
+                            <div class="mock-avatar"></div>
+                            <div class="mock-text">
+                                <div class="line1">Dave checked-in <b>Stout</b> by <b>Brewery</b></div>
+                                <div class="line2">@ Home, ⭐ 3.75, 5m ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mock-content"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Why you'll love it</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="icon">👀</div>
+                    <h3>Always Visible</h3>
+                    <p>Sits quietly at the bottom of your browser. Shrink it when you need space, expand it when you're thirsty.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">⚡</div>
+                    <h3>Real-time Updates</h3>
+                    <p>Uses the Untappd feed to show you the latest check-ins from your friends as they happen.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🎨</div>
+                    <h3>Native Look</h3>
+                    <p>Designed to match the Untappd aesthetic with the classic gold and dark theme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="install" class="install">
+        <div class="container">
+            <h2>How to Install</h2>
+            <ol class="steps">
+                <li>Download the latest release ZIP file.</li>
+                <li>Unzip the file to a folder on your computer.</li>
+                <li>Open Chrome and go to <code class="highlight">chrome://extensions</code>.</li>
+                <li>Enable <b>"Developer mode"</b> in the top right.</li>
+                <li>Click <b>"Load unpacked"</b> and select the folder you unzipped.</li>
+                <li>Login to Untappd in your browser and watch the ticker go! 🍻</li>
+            </ol>
+            <a href="https://github.com/cshoesmith/go_untapped_toolbar" target="_blank" class="btn btn-secondary">View on GitHub</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Made with 🍺 by Chris Shoesmith. Not affiliated with Untappd.</p>
+        </div>
+    </footer>
+
+    <!-- Simple script for some interaction -->
+    <script>
+        // Simple animation for the mock ticker
+        const toolbar = document.querySelector('.mock-toolbar');
+        let offset = 0;
+        function animate() {
+            offset -= 1;
+            if (offset < -350) offset = 0;
+            toolbar.style.transform = `translateX(${offset}px)`;
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
